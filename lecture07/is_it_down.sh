@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# Check if host is down
+
 if [ "$#" -eq 0 ]; then
     echo "Usage: $(basename $0) host..."
     exit 1
