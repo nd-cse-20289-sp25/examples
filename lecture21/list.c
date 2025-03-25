@@ -89,18 +89,18 @@ int main(int argc, char *argv[]) {
     int numbers[] = {4, 6, 6, 3, 7, -1};
     List list     = {NULL};
 
-    // Add numbers to bitset
+    // Add numbers to list
     for (int *np = numbers; *np >= 0; np++) {
     	list_add(&list, *np);
     }
     list_dump(&list);
 
-    // Check bitset for numbers
+    // Check list for numbers
     for (int i = 0; i < 10; i++) {
     	printf("List contains %d? %d\n", i, list_contains(&list, i));
     }
 
-    // Remove numbers from bitset
+    // Remove numbers from list
     for (int *np = numbers; *np >= 0; np++) {
     	list_remove(&list, *np);
     }

@@ -38,9 +38,9 @@ void	list_dump(List *l) {
 int main(int argc, char *argv[]) {
     int numbers[] = {4, 6, 6, 3, 7, -1};
 
-    // TODO: Add numbers to bitset
+    // TODO: Add numbers to list
 
-    // TODO: Check bitset for numbers
+    // TODO: Check list for numbers
 
     return 0;
 }
