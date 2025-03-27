@@ -39,9 +39,9 @@ int main(int argc, char *argv[]) {
     /* Intel machines are little endian. */
 #if 0
     int8_t *a = (int8_t *)&u;               // Cast into array
-    for (int i = 0; i < sizeof(u); i++)
-        printf(" %hhx", a[i]);
-    putc('\n', stdout);
+    for (int i = sizeof(u) - 1; i >= 0; i--) {
+        printf("%lx = %hhx\n", (intptr_t)&a[i], a[i]);
+    }
 #endif
 
     return EXIT_SUCCESS;
