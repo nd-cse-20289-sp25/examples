@@ -20,19 +20,22 @@ void sigalrm_handler(int signum) {
 
 int main(int argc, char *argv[]) {
     int timeout = atoi(argv[1]);
+    int seconds = 1;
 
-    signal(SIGALRM, sigalrm_handler);   // Register handler
-    				    
-    alarm(timeout);			// Set alarm
+    // Register alarm
+    struct sigaction action = {.sa_handler = sigalrm_handler};
+    sigaction(SIGALRM, &action, NULL);
+
+    // Setup alarm
+    alarm(timeout);
 
     // Print out message while waiting for alarm to trigger
-    int seconds = 1;
     while (!Wakeup) {
     	printf("\r%d. Waiting...", seconds++);
     	fflush(stdout);
     	sleep(1);
     }
-    
+
     // Print out alarm
     printf("\r!!! WAKE UP !!!\n");
 
