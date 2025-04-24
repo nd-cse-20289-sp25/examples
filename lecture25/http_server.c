@@ -108,12 +108,12 @@ void handle_request(FILE *client_file) {
 
     /* Skip Headers */
     while (fgets(buffer, BUFSIZ, client_file) && strlen(buffer) > 2);
-    
+
     /* Return message */
-    fprintf(client_file, "HTTP/1.0 200 OK\n");
-    fprintf(client_file, "Content-Type: text/html\n");
+    fprintf(client_file, "HTTP/1.0 200 OK\r\n");
+    fprintf(client_file, "Content-Type: text/html\r\n");
     fprintf(client_file, "\r\n");
-    fprintf(client_file, "<h1>Wake me up inside (I can't wake up)</h1>");
+    fprintf(client_file, "<h1>Wake me up inside (I can't wake up)</h1>\r\n");
 
     return;
 }
@@ -138,7 +138,7 @@ int main(int argc, char *argv[]) {
         FILE *client_file = accept_client(server_fd);
         if (!client_file)
             continue;
-    
+
         /* Handle client request */
         debug("Handling client request");
         handle_request(client_file);
